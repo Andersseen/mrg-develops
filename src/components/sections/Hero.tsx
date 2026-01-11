@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
-import { Button } from "../ui/Button";
-import { Container } from "../ui/Container";
+import { Button } from "@/components/ui/Button";
+import { Container } from "@/components/ui/Container";
 import { ArrowRight } from "lucide-react";
 
 interface HeroData {
@@ -20,8 +20,8 @@ export const Hero = ({ data }: HeroProps) => {
     <section className="relative pt-32 pb-20 md:pt-48 md:pb-32 overflow-hidden">
       {/* Background gradients */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full -z-10 pointer-events-none">
-        <div className="absolute top-[-10%] left-[20%] w-[40rem] h-[40rem] bg-[var(--color-primary)]/10 rounded-full blur-3xl opacity-50 mix-blend-multiply dark:mix-blend-layout" />
-        <div className="absolute top-[10%] right-[20%] w-[35rem] h-[35rem] bg-[var(--color-secondary)]/10 rounded-full blur-3xl opacity-50 mix-blend-multiply dark:mix-blend-layout" />
+        <div className="absolute top-[-10%] left-[20%] w-[40rem] h-[40rem] bg-primary/10 rounded-full blur-3xl opacity-50 mix-blend-multiply dark:mix-blend-layout" />
+        <div className="absolute top-[10%] right-[20%] w-[35rem] h-[35rem] bg-secondary/10 rounded-full blur-3xl opacity-50 mix-blend-multiply dark:mix-blend-layout" />
       </div>
 
       <Container className="relative z-10 text-center">
@@ -30,13 +30,13 @@ export const Hero = ({ data }: HeroProps) => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
         >
-          <span className="inline-block py-1 px-3 rounded-full bg-[var(--color-primary)]/10 text-[var(--color-primary)] text-sm font-semibold mb-6">
+          <span className="inline-block py-1 px-3 rounded-full bg-primary/10 text-primary text-sm font-semibold mb-6">
             {data.tagline}
           </span>
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-8 text-balance">
             {data.heading}
           </h1>
-          <p className="text-lg md:text-xl text-[var(--color-muted-foreground)] max-w-3xl mx-auto mb-10 text-balance leading-relaxed">
+          <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto mb-10 text-balance leading-relaxed">
             {data.description}
           </p>
 

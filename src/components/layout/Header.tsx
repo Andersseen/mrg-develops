@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
 import { Menu, X, Globe } from "lucide-react";
-import { Button } from "../ui/Button";
-import { Container } from "../ui/Container";
-import { ThemeToggle } from "../ThemeToggle";
-import { useScrollSpy } from "../../hooks/useScrollSpy";
+import { Button } from "@/components/ui/Button";
+import { Container } from "@/components/ui/Container";
+import { ThemeToggle } from "@/components/ThemeToggle";
+import { useScrollSpy } from "@/hooks/useScrollSpy";
 
 interface HeaderData {
   nav: readonly { label: string; href: string }[];
@@ -54,7 +54,7 @@ export const Header = ({ lang, data }: HeaderProps) => {
         <div className="flex h-16 items-center justify-between">
           <div className="flex-shrink-0 flex items-center">
             <a href={`/${lang}`} className="text-xl font-bold tracking-tight">
-              <span className="text-[var(--color-primary)]">MRG</span> develops
+              <span className="text-primary">MRG</span> develops
             </a>
           </div>
 
@@ -63,10 +63,10 @@ export const Header = ({ lang, data }: HeaderProps) => {
               <a
                 key={item.href}
                 href={item.href}
-                className={`text-sm font-medium transition-colors hover:text-[var(--color-primary)] ${
+                className={`text-sm font-medium transition-colors hover:text-primary ${
                   activeId === item.href.replace("#", "")
-                    ? "text-[var(--color-primary)]"
-                    : "text-[var(--color-foreground)]"
+                    ? "text-primary"
+                    : "text-foreground"
                 }`}
               >
                 {item.label}
@@ -98,7 +98,7 @@ export const Header = ({ lang, data }: HeaderProps) => {
             <ThemeToggle />
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-2 text-[var(--color-foreground)]"
+              className="p-2 text-foreground"
             >
               {mobileMenuOpen ? <X /> : <Menu />}
             </button>
