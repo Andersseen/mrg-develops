@@ -1,7 +1,7 @@
 import { Cloud, Database, Brain, Rocket, Code2 } from "lucide-react";
-import { Section } from "@/components/ui/Section";
-import { Container } from "@/components/ui/Container";
-import { cn } from "@/components/ui/Button";
+import { Section } from "@components/ui/Section";
+import { Container } from "@components/ui/Container";
+import { cn } from "@components/ui/Button";
 
 interface ServiceItem {
   title: string;

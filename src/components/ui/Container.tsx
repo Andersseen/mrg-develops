@@ -1,5 +1,5 @@
 import React from "react";
-import { cn } from "@/components/ui/Button"; // Re-using cn utility
+import { cn } from "@components/ui/Button";
 
 interface ContainerProps {
   className?: string;

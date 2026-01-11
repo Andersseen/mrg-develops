@@ -81,7 +81,7 @@ contact:
     message: Message
     send: Send Message
     info:
-      email: contact@mrgdevelops.com
+      email: mikhail.retinski@mrgdevelops.com
       location: Global / Remote
   es:
     heading: Contáctanos
@@ -91,7 +91,7 @@ contact:
     message: Mensaje
     send: Enviar Mensaje
     info:
-      email: contact@mrgdevelops.com
+      email: mikhail.retinski@mrgdevelops.com
       location: Global / Remoto
 
 header:

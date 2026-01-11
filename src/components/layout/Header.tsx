@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
 import { Menu, X, Globe } from "lucide-react";
-import { Button } from "@/components/ui/Button";
-import { Container } from "@/components/ui/Container";
-import { ThemeToggle } from "@/components/ThemeToggle";
-import { useScrollSpy } from "@/hooks/useScrollSpy";
+import { Button } from "@components/ui/Button";
+import { Container } from "@components/ui/Container";
+import { ThemeToggle } from "@components/ThemeToggle";
+import { useScrollSpy } from "@lib/../hooks/useScrollSpy";
 
 interface HeaderData {
   nav: readonly { label: string; href: string }[];
@@ -46,7 +46,7 @@ export const Header = ({ lang, data }: HeaderProps) => {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled || mobileMenuOpen
-          ? "bg-[var(--color-background)]/80 backdrop-blur-md border-b border-[var(--color-muted)]"
+          ? "bg-background/80 backdrop-blur-md border-b border-muted"
           : "bg-transparent"
       }`}
     >
@@ -107,16 +107,16 @@ export const Header = ({ lang, data }: HeaderProps) => {
       </Container>
 
       {mobileMenuOpen && (
-        <div className="md:hidden border-b border-[var(--color-muted)] bg-[var(--color-background)]">
+        <div className="md:hidden border-b border-muted bg-background">
           <Container className="py-4 flex flex-col gap-4">
             {data.nav.map((item) => (
               <a
                 key={item.href}
                 href={item.href}
-                className={`text-base font-medium py-2 border-b border-[var(--color-muted)] last:border-0 ${
+                className={`text-base font-medium py-2 border-b border-muted last:border-0 ${
                   activeId === item.href.replace("#", "")
-                    ? "text-[var(--color-primary)]"
-                    : "text-[var(--color-foreground)]"
+                    ? "text-primary"
+                    : "text-foreground"
                 }`}
                 onClick={() => setMobileMenuOpen(false)}
               >

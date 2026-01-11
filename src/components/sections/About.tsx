@@ -1,5 +1,5 @@
-import { Section } from "@/components/ui/Section";
-import { Container } from "@/components/ui/Container";
+import { Section } from "@components/ui/Section";
+import { Container } from "@components/ui/Container";
 import { CheckCircle2 } from "lucide-react";
 
 interface AboutData {

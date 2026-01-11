@@ -9,18 +9,19 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/cloudflare": "^12.6.12",
     "@astrojs/react": "^4.4.2",
+    "@astrojs/vercel": "^9.0.3",
     "@keystatic/astro": "^5.0.6",
     "@keystatic/core": "^0.5.48",
     "@tailwindcss/vite": "^4.1.18",
     "astro": "^5.16.8",
     "clsx": "^2.1.1",
-    "framer-motion": "^12.25.0",
     "lenis": "^1.3.17",
     "lucide-react": "^0.562.0",
+    "motion": "^12.25.0",
     "react": "^19.2.3",
     "react-dom": "^19.2.3",
+    "resend": "^6.7.0",
     "tailwind-merge": "^3.4.0",
     "tailwindcss": "^4.1.18"
   },

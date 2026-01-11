@@ -1,6 +1,6 @@
 import { useRef } from "react";
-import { motion, useInView } from "framer-motion";
-import { cn } from "@/components/ui/Button";
+import { motion, useInView } from "motion/react";
+import { cn } from "@components/ui/Button";
 
 interface SectionProps {
   id?: string;
