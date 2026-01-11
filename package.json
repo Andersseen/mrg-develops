@@ -1,7 +1,16 @@
 {
   "name": "mrg-develops",
   "type": "module",
-  "version": "0.0.1",
+  "version": "0.1.0",
+  "description": "The Cloud Brewery - AI-driven Multi-Cloud Technology Partner Website",
+  "author": "Andersseen",
+  "keywords": [
+    "astro",
+    "react",
+    "tailwindcss",
+    "typescript",
+    "keystatic"
+  ],
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
