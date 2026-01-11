@@ -2,7 +2,7 @@
 
 :root {
   --background: oklab(0.98 0 0);
-  --foreground: oklab(0.2 0 0);
+  --foreground: oklab(0.15 0 0);
 
   --primary: oklab(0.65 0.18 -0.12);
   --secondary: oklab(0.85 0.1 0.1);

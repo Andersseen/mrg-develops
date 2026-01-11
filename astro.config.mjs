@@ -10,12 +10,10 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 const integrations = [react()];
 
-// Only load Keystatic if SKIP_KEYSTATIC is not true
 if (!process.env.SKIP_KEYSTATIC) {
   integrations.push(keystatic());
 }
 
-// https://astro.build/config
 export default defineConfig({
   output: "static",
   adapter: vercel(),

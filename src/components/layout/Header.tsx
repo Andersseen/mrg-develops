@@ -79,6 +79,7 @@ export const Header = ({ lang, data }: HeaderProps) => {
               variant="ghost"
               size="sm"
               onClick={toggleLanguage}
+              aria-label="Switch Language"
               className="flex items-center gap-2"
             >
               <Globe className="h-4 w-4" />
@@ -99,6 +100,7 @@ export const Header = ({ lang, data }: HeaderProps) => {
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               className="p-2 text-foreground"
+              aria-label="Toggle menu"
             >
               {mobileMenuOpen ? <X /> : <Menu />}
             </button>
