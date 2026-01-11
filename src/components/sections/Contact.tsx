@@ -1,42 +1,29 @@
 import { Section } from "../ui/Section";
 import { Container } from "../ui/Container";
 import { Button } from "../ui/Button";
-import { Mail, Phone, MapPin } from "lucide-react";
+import { Mail, MapPin } from "lucide-react";
+
+interface ContactInfo {
+  email: string;
+  location: string;
+}
+
+interface ContactData {
+  heading: string;
+  subheading: string;
+  name: string;
+  email: string;
+  message: string;
+  send: string;
+  info: ContactInfo;
+}
 
 interface ContactProps {
   lang: "en" | "es";
+  data: ContactData;
 }
 
-export const Contact = ({ lang }: ContactProps) => {
-  const content = {
-    en: {
-      heading: "Get in Touch",
-      subheading: "Let's shape the future of your cloud environment.",
-      name: "Name",
-      email: "Email",
-      message: "Message",
-      send: "Send Message",
-      info: {
-        email: "contact@mrgdevelops.com",
-        location: "Global / Remote",
-      },
-    },
-    es: {
-      heading: "Contáctanos",
-      subheading: "Demos forma al futuro de su entorno en la nube.",
-      name: "Nombre",
-      email: "Correo electrónico",
-      message: "Mensaje",
-      send: "Enviar Mensaje",
-      info: {
-        email: "contact@mrgdevelops.com",
-        location: "Global / Remoto",
-      },
-    },
-  };
-
-  const text = content[lang];
-
+export const Contact = ({ lang, data }: ContactProps) => {
   return (
     <Section id="contact" className="bg-[var(--color-muted)]/30">
       <Container>
@@ -44,10 +31,10 @@ export const Contact = ({ lang }: ContactProps) => {
           {/* Contact Info */}
           <div>
             <h2 className="text-3xl md:text-5xl font-bold mb-6">
-              {text.heading}
+              {data.heading}
             </h2>
             <p className="text-lg text-[var(--color-muted-foreground)] mb-12">
-              {text.subheading}
+              {data.subheading}
             </p>
 
             <div className="space-y-6">
@@ -58,10 +45,10 @@ export const Contact = ({ lang }: ContactProps) => {
                 <div>
                   <h3 className="font-semibold mb-1">Email</h3>
                   <a
-                    href={`mailto:${text.info.email}`}
+                    href={`mailto:${data.info.email}`}
                     className="text-[var(--color-muted-foreground)] hover:text-[var(--color-primary)] transition-colors"
                   >
-                    {text.info.email}
+                    {data.info.email}
                   </a>
                 </div>
               </div>
@@ -75,7 +62,7 @@ export const Contact = ({ lang }: ContactProps) => {
                     {lang === "en" ? "Location" : "Ubicación"}
                   </h3>
                   <p className="text-[var(--color-muted-foreground)]">
-                    {text.info.location}
+                    {data.info.location}
                   </p>
                 </div>
               </div>
@@ -88,7 +75,7 @@ export const Contact = ({ lang }: ContactProps) => {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="space-y-2">
                   <label htmlFor="name" className="text-sm font-medium">
-                    {text.name}
+                    {data.name}
                   </label>
                   <input
                     type="text"
@@ -99,7 +86,7 @@ export const Contact = ({ lang }: ContactProps) => {
                 </div>
                 <div className="space-y-2">
                   <label htmlFor="email" className="text-sm font-medium">
-                    {text.email}
+                    {data.email}
                   </label>
                   <input
                     type="email"
@@ -112,7 +99,7 @@ export const Contact = ({ lang }: ContactProps) => {
 
               <div className="space-y-2">
                 <label htmlFor="message" className="text-sm font-medium">
-                  {text.message}
+                  {data.message}
                 </label>
                 <textarea
                   id="message"
@@ -122,7 +109,7 @@ export const Contact = ({ lang }: ContactProps) => {
                 ></textarea>
               </div>
 
-              <Button size="lg">{text.send}</Button>
+              <Button size="lg">{data.send}</Button>
             </form>
           </div>
         </div>

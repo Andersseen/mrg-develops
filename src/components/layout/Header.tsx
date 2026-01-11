@@ -3,23 +3,24 @@ import { Menu, X, Globe } from "lucide-react";
 import { Button } from "../ui/Button";
 import { Container } from "../ui/Container";
 import { ThemeToggle } from "../ThemeToggle";
+import { useScrollSpy } from "../../hooks/useScrollSpy";
+
+interface HeaderData {
+  nav: readonly { label: string; href: string }[];
+  cta: string;
+}
 
 interface HeaderProps {
   lang: "en" | "es";
+  data: HeaderData;
 }
 
-const navItems = [
-  { label: { en: "About Us", es: "Quiénes Somos" }, href: "#about" },
-  { label: { en: "Services", es: "Qué Hacemos" }, href: "#services" },
-  // { label: { en: 'Projects', es: 'Proyectos' }, href: '#projects' }, // Hidden for now
-  // { label: { en: 'CIO', es: 'CIO' }, href: '#cio' }, // Hidden
-  // { label: { en: 'Blog', es: 'Blog' }, href: '#blog' }, // Hidden
-  { label: { en: "Contact", es: "Contacto" }, href: "#contact" },
-];
-
-export const Header = ({ lang }: HeaderProps) => {
+export const Header = ({ lang, data }: HeaderProps) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  const navIds = data.nav.map((item) => item.href.replace("#", ""));
+  const activeId = useScrollSpy(navIds, 100);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -32,13 +33,11 @@ export const Header = ({ lang }: HeaderProps) => {
   const toggleLanguage = () => {
     const newLang = lang === "en" ? "es" : "en";
     const currentPath = window.location.pathname;
-    // Simple replacement logic for now
     if (currentPath.includes("/es")) {
       window.location.href = currentPath.replace("/es", "/en");
     } else if (currentPath.includes("/en")) {
       window.location.href = currentPath.replace("/en", "/es");
     } else {
-      // Default to ES if at root (should be handled by middleware/redirects)
       window.location.href = `/${newLang}`;
     }
   };
@@ -53,27 +52,28 @@ export const Header = ({ lang }: HeaderProps) => {
     >
       <Container>
         <div className="flex h-16 items-center justify-between">
-          {/* Logo */}
           <div className="flex-shrink-0 flex items-center">
             <a href={`/${lang}`} className="text-xl font-bold tracking-tight">
               <span className="text-[var(--color-primary)]">MRG</span> develops
             </a>
           </div>
 
-          {/* Desktop Nav */}
           <nav className="hidden md:flex items-center gap-8">
-            {navItems.map((item) => (
+            {data.nav.map((item) => (
               <a
                 key={item.href}
                 href={item.href}
-                className="text-sm font-medium hover:text-[var(--color-primary)] transition-colors"
+                className={`text-sm font-medium transition-colors hover:text-[var(--color-primary)] ${
+                  activeId === item.href.replace("#", "")
+                    ? "text-[var(--color-primary)]"
+                    : "text-[var(--color-foreground)]"
+                }`}
               >
-                {item.label[lang]}
+                {item.label}
               </a>
             ))}
           </nav>
 
-          {/* Actions */}
           <div className="hidden md:flex items-center gap-4">
             <Button
               variant="ghost"
@@ -90,11 +90,10 @@ export const Header = ({ lang }: HeaderProps) => {
               size="sm"
               onClick={() => (window.location.href = "#contact")}
             >
-              {lang === "en" ? "Get in Touch" : "Contáctanos"}
+              {data.cta}
             </Button>
           </div>
 
-          {/* Mobile Menu Button */}
           <div className="flex md:hidden items-center gap-4">
             <ThemeToggle />
             <button
@@ -107,18 +106,21 @@ export const Header = ({ lang }: HeaderProps) => {
         </div>
       </Container>
 
-      {/* Mobile Menu */}
       {mobileMenuOpen && (
         <div className="md:hidden border-b border-[var(--color-muted)] bg-[var(--color-background)]">
           <Container className="py-4 flex flex-col gap-4">
-            {navItems.map((item) => (
+            {data.nav.map((item) => (
               <a
                 key={item.href}
                 href={item.href}
-                className="text-base font-medium py-2 border-b border-[var(--color-muted)] last:border-0"
+                className={`text-base font-medium py-2 border-b border-[var(--color-muted)] last:border-0 ${
+                  activeId === item.href.replace("#", "")
+                    ? "text-[var(--color-primary)]"
+                    : "text-[var(--color-foreground)]"
+                }`}
                 onClick={() => setMobileMenuOpen(false)}
               >
-                {item.label[lang]}
+                {item.label}
               </a>
             ))}
             <div className="flex items-center justify-between pt-4">
@@ -139,7 +141,7 @@ export const Header = ({ lang }: HeaderProps) => {
                   setMobileMenuOpen(false);
                 }}
               >
-                {lang === "en" ? "Get in Touch" : "Contáctanos"}
+                {data.cta}
               </Button>
             </div>
           </Container>

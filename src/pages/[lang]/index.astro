@@ -20,6 +20,10 @@ if (!lang || (lang !== 'en' && lang !== 'es')) {
    return Astro.redirect('/en');
 }
 
+import { getLocalizedLandingPageData } from '../../lib/content';
+
+const data = await getLocalizedLandingPageData(lang as 'en' | 'es');
+
 const titles = {
     en: "MRG develops - The Cloud Brewery",
     es: "MRG develops - The Cloud Brewery (ES)"
@@ -27,14 +31,14 @@ const titles = {
 ---
 
 <Layout title={titles[lang]} lang={lang}>
-	<Header client:load lang={lang} />
+	<Header client:load lang={lang} data={data.header} />
 	
 	<main>
-		<Hero client:load lang={lang} />
-		<About client:visible lang={lang} />
-		<Services client:visible lang={lang} />
-		<Contact client:visible lang={lang} />
+		<Hero client:load data={data.hero} />
+		<About client:visible data={data.about} />
+		<Services client:visible data={data.services} />
+		<Contact client:visible lang={lang} data={data.contact} />
 	</main>
 
-	<Footer lang={lang} />
+	<Footer lang={lang} data={data.footer} />
 </Layout>

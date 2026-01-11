@@ -1,11 +1,17 @@
 import { Container } from "../ui/Container";
 import { Linkedin, Facebook, Twitter, Youtube, Instagram } from "lucide-react";
 
-interface FooterProps {
-  lang: "en" | "es";
+interface FooterData {
+  tagline: string;
+  copyright: string;
 }
 
-export const Footer = ({ lang }: FooterProps) => {
+interface FooterProps {
+  lang: "en" | "es";
+  data: FooterData;
+}
+
+export const Footer = ({ lang, data }: FooterProps) => {
   return (
     <footer className="bg-[var(--color-muted)]/30 border-t border-[var(--color-muted)] py-12 mt-auto">
       <Container>
@@ -18,7 +24,7 @@ export const Footer = ({ lang }: FooterProps) => {
               The Cloud Brewery
             </p>
             <p className="text-sm text-[var(--color-muted-foreground)] mt-2">
-              Your AI-driven Multi-Cloud Technology Partner
+              {data.tagline}
             </p>
           </div>
 
@@ -105,7 +111,7 @@ export const Footer = ({ lang }: FooterProps) => {
         </div>
 
         <div className="border-t border-[var(--color-muted-foreground)]/10 mt-12 pt-8 text-center text-sm text-[var(--color-muted-foreground)]">
-          &copy; 2026 MRG develops - The Cloud Brewery. All rights reserved.
+          {data.copyright}
         </div>
       </Container>
     </footer>

@@ -1,5 +1,6 @@
 ---
 import '../styles/global.css';
+import { SmoothScroll } from '../components/SmoothScroll';
 
 interface Props {
 	title: string;
@@ -20,7 +21,8 @@ const { title, lang = 'en', description = "MRG develops - The Cloud Brewery | Yo
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 	</head>
-	<body class="bg-[var(--color-background)] text-[var(--color-foreground)] antialiased min-h-screen flex flex-col">
+	<body class="bg-background text-foreground antialiased min-h-screen flex flex-col">
+		<SmoothScroll client:only="react" />
 		<slot />
 	</body>
 </html>

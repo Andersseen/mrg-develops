@@ -1,0 +1,123 @@
+hero:
+  en:
+    tagline: The Cloud Brewery
+    heading: Your AI-driven Multi-Cloud Technology Partner
+    description: We specialize in architecting modern, scalable, robust and secure cloud-native solutions. Empowering businesses to innovate and grow by leveraging cutting-edge cloud technologies.
+    cta: Start Your Journey
+    secondaryCta: Explore Services
+  es:
+    tagline: The Cloud Brewery
+    heading: Su Socio Tecnológico Multi-Cloud Impulsado por IA
+    description: Nos especializamos en arquiitecturas modernas, escalables, robustas y seguras. Empoderando a las empresas para innovar y crecer aprovechando tecnologías en la nube de vanguardia.
+    cta: Comienza Tu Viaje
+    secondaryCta: Explorar Servicios
+
+about:
+  en:
+    heading: Who We Are
+    text1: MRG develops is a forward-thinking AI- and Cloud-first company led by certified experts in AWS and Google Cloud. We bring together deep expertise in infrastructure, data engineering, and AI integration.
+    text2: With a strong focus on reliability, cost efficiency, and performance, we design tailored architectures to meet your unique business goals.
+    highlights:
+      - Certified AWS & Google Cloud Experts
+      - Focus on Reliability & Automation
+      - Cutting-edge AI Integration
+      - Customer-Centric Approach
+  es:
+    heading: Quiénes Somos
+    text1: MRG develops es una empresa vanguardista centrada en IA y Cloud, liderada por expertos certificados en AWS y Google Cloud. Unimos experiencia profunda en infraestructura, ingeniería de datos e integración de IA.
+    text2: Con un fuerte enfoque en confiabilidad, eficiencia de costos y rendimiento, diseñamos arquitecturas a medida para cumplir con sus objetivos comerciales únicos.
+    highlights:
+      - Expertos Certificados en AWS y Google Cloud
+      - Enfoque en Confiabilidad y Automatización
+      - Integración de IA de Vanguardia
+      - Enfoque Centrado en el Cliente
+
+services:
+  en:
+    heading: Our Expertise
+    subheading: Comprehensive Cloud & AI Solutions
+    items:
+      - title: Cloud Architecture
+        description: Robust cloud-native, multi-cloud and hybrid-cloud architectures tailored to unique business goals.
+        icon: Cloud
+      - title: Data Engineering
+        description: Maximize the value of your data with scalable data pipelines and advanced analytics infrastructure.
+        icon: Database
+      - title: Artificial Intelligence
+        description: Top-notch AI / ML / GenAI integration to accelerate digital transformation.
+        icon: Brain
+      - title: Cloud Native App Development
+        description: Building modern, scalable applications designed specifically for the cloud environment.
+        icon: Code2
+      - title: Digital Transformation
+        description: Strategic guidance to help organizations modernize and thrive in the digital age.
+        icon: Rocket
+  es:
+    heading: Nuestra Experiencia
+    subheading: Soluciones Integrales de Nube e IA
+    items:
+      - title: Arquitectura Cloud
+        description: Arquitecturas cloud-native, multi-cloud e híbridas robustas y adaptadas a objetivos comerciales únicos.
+        icon: Cloud
+      - title: Ingeniería de Datos
+        description: Maximice el valor de sus datos con pipelines escalables e infraestructura de análisis avanzada.
+        icon: Database
+      - title: Inteligencia Artificial
+        description: Integración de primera clase de IA / ML / GenAI para acelerar la transformación digital.
+        icon: Brain
+      - title: Desarrollo de Apps Cloud Native
+        description: Construcción de aplicaciones modernas y escalables diseñadas específicamente para la nube.
+        icon: Code2
+      - title: Transformación Digital
+        description: Guía estratégica para ayudar a las organizaciones a modernizarse y prosperar en la era digital.
+        icon: Rocket
+
+contact:
+  en:
+    heading: Get in Touch
+    subheading: Let's shape the future of your cloud environment.
+    name: Name
+    email: Email
+    message: Message
+    send: Send Message
+    info:
+      email: contact@mrgdevelops.com
+      location: Global / Remote
+  es:
+    heading: Contáctanos
+    subheading: Demos forma al futuro de su entorno en la nube.
+    name: Nombre
+    email: Correo electrónico
+    message: Mensaje
+    send: Enviar Mensaje
+    info:
+      email: contact@mrgdevelops.com
+      location: Global / Remoto
+
+header:
+  en:
+    nav:
+      - label: About Us
+        href: "#about"
+      - label: Services
+        href: "#services"
+      - label: Contact
+        href: "#contact"
+    cta: Get in Touch
+  es:
+    nav:
+      - label: Quiénes Somos
+        href: "#about"
+      - label: Qué Hacemos
+        href: "#services"
+      - label: Contacto
+        href: "#contact"
+    cta: Contáctanos
+
+footer:
+  en:
+    tagline: Your AI-driven Multi-Cloud Technology Partner
+    copyright: "© 2026 MRG develops - The Cloud Brewery. All rights reserved."
+  es:
+    tagline: Su Socio Tecnológico Multi-Cloud Impulsado por IA
+    copyright: "© 2026 MRG develops - The Cloud Brewery. Todos los derechos reservados."
