@@ -1,22 +1,26 @@
+---
+import '../styles/global.css';
+
+interface Props {
+	title: string;
+    lang?: 'en' | 'es';
+    description?: string;
+}
+
+const { title, lang = 'en', description = "MRG develops - The Cloud Brewery | Your AI-driven Multi-Cloud Technology Partner" } = Astro.props;
+---
+
 <!doctype html>
-<html lang="en">
+<html lang={lang}>
 	<head>
 		<meta charset="UTF-8" />
+		<meta name="description" content={description} />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
+		<title>{title}</title>
 	</head>
-	<body>
+	<body class="bg-[var(--color-background)] text-[var(--color-foreground)] antialiased min-h-screen flex flex-col">
 		<slot />
 	</body>
 </html>
-
-<style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-	}
-</style>
