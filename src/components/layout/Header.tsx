@@ -63,10 +63,10 @@ export const Header = ({ lang, data }: HeaderProps) => {
               <a
                 key={item.href}
                 href={item.href}
-                className={`text-sm font-medium transition-colors hover:text-primary ${
+                className={`text-sm font-medium px-4 py-2 rounded-xl transition-all duration-300 ${
                   activeId === item.href.replace("#", "")
-                    ? "text-primary"
-                    : "text-foreground"
+                    ? "text-primary shadow-neu-inset bg-background"
+                    : "text-foreground hover:text-primary hover:shadow-neu hover:bg-background"
                 }`}
               >
                 {item.label}

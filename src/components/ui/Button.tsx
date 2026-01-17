@@ -7,7 +7,7 @@ export function cn(...inputs: ClassValue[]) {
 }
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  variant?: "primary" | "secondary" | "outline" | "ghost" | "neumorphic";
+  variant?: "primary" | "secondary" | "outline" | "ghost";
   size?: "sm" | "md" | "lg";
   children: ReactNode;
 }
@@ -20,18 +20,17 @@ export const Button = ({
   ...props
 }: ButtonProps) => {
   const baseStyles =
-    "inline-flex items-center justify-center rounded-xl font-medium transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary disabled:opacity-50 disabled:pointer-events-none cursor-pointer active:scale-95";
+    "inline-flex items-center justify-center rounded-xl font-medium transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary disabled:opacity-50 disabled:pointer-events-none cursor-pointer active:scale-95 shadow-neu active:shadow-neu-inset hover:shadow-neu-hover";
 
   const variants = {
     primary:
-      "bg-primary-500 text-white shadow-md hover:bg-primary-600 hover:shadow-lg active:bg-primary-700 active:shadow-inner",
+      "bg-primary-500 text-white shadow-neu hover:shadow-neu-hover active:shadow-neu-inset",
     secondary:
-      "bg-secondary text-secondary-foreground shadow-md hover:opacity-90 active:shadow-inner",
-    neumorphic:
-      "bg-background text-primary shadow-neu hover:shadow-neu-inset active:shadow-neu-inset",
+      "bg-secondary text-secondary-foreground shadow-neu hover:shadow-neu-hover active:shadow-neu-inset",
     outline:
-      "border-2 border-primary-500 text-primary-600 hover:bg-primary-50 dark:hover:bg-primary-900/20",
-    ghost: "hover:bg-black/5 dark:hover:bg-white/10 text-foreground",
+      "bg-background border-2 border-primary-500 text-primary-600 shadow-neu hover:shadow-neu-hover hover:bg-primary-50 active:shadow-neu-inset dark:hover:bg-primary-900/20",
+    ghost:
+      "bg-transparent text-foreground shadow-none hover:bg-background hover:shadow-neu active:shadow-neu-inset",
   };
 
   const sizes = {

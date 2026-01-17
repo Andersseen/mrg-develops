@@ -45,12 +45,12 @@ export const Services = ({ data }: ServicesProps) => {
               <div
                 key={index}
                 className={cn(
-                  "p-8 rounded-2xl bg-background border border-muted",
-                  "hover:border-primary/50 hover:shadow-lg transition-all duration-300",
-                  "group"
+                  "p-8 rounded-2xl bg-background shadow-neu",
+                  "hover:shadow-neu-hover transition-all duration-300",
+                  "group",
                 )}
               >
-                <div className="mb-6 inline-flex p-4 rounded-xl bg-primary/10 text-primary group-hover:scale-110 transition-transform">
+                <div className="mb-6 inline-flex p-4 rounded-xl bg-background shadow-neu-inset text-primary group-hover:scale-110 transition-transform">
                   <IconComponent className="w-8 h-8" />
                 </div>
                 <h3 className="text-xl font-bold mb-3">{item.title}</h3>
