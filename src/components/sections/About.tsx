@@ -20,9 +20,9 @@ export const About = ({ data }: AboutProps) => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 md:gap-20 items-center">
           <div className="relative order-2 lg:order-1">
             <div className="aspect-square rounded-3xl overflow-hidden bg-gradient-to-br from-primary to-secondary opacity-10 absolute inset-0 transform -rotate-6 scale-95" />
-            <div className="aspect-square rounded-3xl overflow-hidden border border-muted bg-background relative z-10 flex items-center justify-center p-8 shadow-2xl">
+            <div className="aspect-square rounded-3xl overflow-hidden bg-background relative z-10 flex items-center justify-center p-8 shadow-neu">
               <div className="text-center">
-                <span className="text-6xl font-bold text-primary opacity-20 block">
+                <span className="text-6xl font-bold text-primary opacity-20 block shadow-neu-text">
                   MRG
                 </span>
                 <span className="text-xl text-muted-foreground uppercase tracking-widest">

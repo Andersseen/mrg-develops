@@ -75,7 +75,7 @@ export const Contact = ({ lang, data }: ContactProps) => {
 
             <div className="space-y-6">
               <div className="flex items-start gap-4">
-                <span className="p-3 rounded-lg bg-background border border-muted text-primary">
+                <span className="p-3 rounded-xl bg-background shadow-neu text-primary">
                   <Mail className="h-6 w-6" />
                 </span>
                 <div>
@@ -90,7 +90,7 @@ export const Contact = ({ lang, data }: ContactProps) => {
               </div>
 
               <div className="flex items-start gap-4">
-                <span className="p-3 rounded-lg bg-background border border-muted text-primary">
+                <span className="p-3 rounded-xl bg-background shadow-neu text-primary">
                   <MapPin className="h-6 w-6" />
                 </span>
                 <div>
@@ -104,7 +104,7 @@ export const Contact = ({ lang, data }: ContactProps) => {
           </div>
 
           {/* Form */}
-          <div className="bg-background rounded-2xl p-8 border border-muted shadow-sm">
+          <div className="bg-background rounded-2xl p-8 shadow-neu">
             <form className="space-y-6" onSubmit={handleSubmit}>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="space-y-2">
@@ -115,7 +115,7 @@ export const Contact = ({ lang, data }: ContactProps) => {
                     type="text"
                     id="name"
                     name="name"
-                    className="w-full h-10 px-3 rounded-md border border-muted bg-transparent focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
+                    className="w-full h-12 px-4 rounded-xl bg-background shadow-neu-inset focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all placeholder:text-muted-foreground/50"
                     required
                   />
                 </div>
@@ -127,7 +127,7 @@ export const Contact = ({ lang, data }: ContactProps) => {
                     type="email"
                     id="email"
                     name="email"
-                    className="w-full h-10 px-3 rounded-md border border-muted bg-transparent focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
+                    className="w-full h-12 px-4 rounded-xl bg-background shadow-neu-inset focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all placeholder:text-muted-foreground/50"
                     required
                   />
                 </div>
@@ -141,7 +141,7 @@ export const Contact = ({ lang, data }: ContactProps) => {
                   id="message"
                   name="message"
                   rows={4}
-                  className="w-full p-3 rounded-md border border-muted bg-transparent focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all resize-none"
+                  className="w-full p-4 rounded-xl bg-background shadow-neu-inset focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all resize-none placeholder:text-muted-foreground/50"
                   required
                 ></textarea>
               </div>

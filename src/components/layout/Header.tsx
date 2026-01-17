@@ -46,7 +46,7 @@ export const Header = ({ lang, data }: HeaderProps) => {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled || mobileMenuOpen
-          ? "bg-background/80 backdrop-blur-md border-b border-muted"
+          ? "bg-background/90 backdrop-blur-md shadow-neu"
           : "bg-transparent"
       }`}
     >
@@ -63,10 +63,10 @@ export const Header = ({ lang, data }: HeaderProps) => {
               <a
                 key={item.href}
                 href={item.href}
-                className={`text-sm font-medium transition-colors hover:text-primary ${
+                className={`text-sm font-medium px-4 py-2 rounded-xl transition-all duration-300 ${
                   activeId === item.href.replace("#", "")
-                    ? "text-primary"
-                    : "text-foreground"
+                    ? "text-primary shadow-neu-inset bg-background"
+                    : "text-foreground hover:text-primary hover:shadow-neu hover:bg-background"
                 }`}
               >
                 {item.label}
