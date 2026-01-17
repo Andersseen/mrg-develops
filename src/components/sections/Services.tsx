@@ -29,7 +29,7 @@ const iconMap: Record<string, any> = {
 
 export const Services = ({ data }: ServicesProps) => {
   return (
-    <Section id="services" className="bg-muted/30">
+    <Section id="services">
       <Container>
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-5xl font-bold mb-4">

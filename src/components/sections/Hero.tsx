@@ -3,6 +3,9 @@ import { Button } from "@components/ui/Button";
 import { Container } from "@components/ui/Container";
 import { ArrowRight } from "lucide-react";
 
+import { useEffect, useState } from "react";
+import { WavyBackground } from "@components/ui/WavyBackground";
+
 interface HeroData {
   tagline: string;
   heading: string;
@@ -16,13 +19,39 @@ interface HeroProps {
 }
 
 export const Hero = ({ data }: HeroProps) => {
+  const [backgroundFill, setBackgroundFill] = useState<string>("");
+
+  useEffect(() => {
+    const getBackgroundColor = () => {
+      const isDark = document.documentElement.classList.contains("dark");
+
+      return isDark ? "#121212" : "#e4e4e4";
+    };
+
+    setBackgroundFill(getBackgroundColor());
+
+    const observer = new MutationObserver(() => {
+      setBackgroundFill(getBackgroundColor());
+    });
+
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ["class"],
+    });
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <section className="relative pt-32 pb-20 md:pt-48 md:pb-32 overflow-hidden">
-      {/* Background gradients */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full -z-10 pointer-events-none">
-        <div className="absolute top-[-10%] left-[20%] w-[40rem] h-[40rem] bg-primary/10 rounded-full blur-3xl opacity-50 mix-blend-multiply dark:mix-blend-layout" />
-        <div className="absolute top-[10%] right-[20%] w-[35rem] h-[35rem] bg-secondary/10 rounded-full blur-3xl opacity-50 mix-blend-multiply dark:mix-blend-layout" />
-      </div>
+      <WavyBackground
+        className="max-w-4xl mx-auto pb-40"
+        backgroundFill={backgroundFill}
+        colors={["#22c55e", "#15803d", "#86efac", "#4ade80", "#16a34a"]}
+        waveWidth={50}
+        speed="slow"
+        containerClassName="absolute inset-0 h-full w-full -z-10"
+      />
 
       <Container className="relative z-10 text-center">
         <motion.div
