@@ -1,7 +1,7 @@
 import { Cloud, Database, Brain, Rocket, Code2 } from "lucide-react";
 import { Section } from "@components/ui/Section";
 import { Container } from "@components/ui/Container";
-import { cn } from "@components/ui/Button";
+import { BentoGrid, BentoGridItem } from "@components/ui/BentoGrid";
 
 interface ServiceItem {
   title: string;
@@ -38,29 +38,27 @@ export const Services = ({ data }: ServicesProps) => {
           <p className="text-xl text-muted-foreground">{data.subheading}</p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <BentoGrid className="max-w-4xl mx-auto">
           {data.items.map((item, index) => {
             const IconComponent = iconMap[item.icon] || Cloud;
             return (
-              <div
+              <BentoGridItem
                 key={index}
-                className={cn(
-                  "p-8 rounded-2xl bg-background shadow-neu",
-                  "hover:shadow-neu-hover transition-all duration-300",
-                  "group",
-                )}
-              >
-                <div className="mb-6 inline-flex p-4 rounded-xl bg-background shadow-neu-inset text-primary group-hover:scale-110 transition-transform">
-                  <IconComponent className="w-8 h-8" />
-                </div>
-                <h3 className="text-xl font-bold mb-3">{item.title}</h3>
-                <p className="text-muted-foreground leading-relaxed">
-                  {item.description}
-                </p>
-              </div>
+                title={item.title}
+                description={item.description}
+                header={
+                  <div className="flex flex-1 w-full h-full min-h-[6rem] rounded-xl items-center justify-center shadow-neu-inset">
+                    <IconComponent className="w-10 h-10 text-primary" />
+                  </div>
+                }
+                icon={<IconComponent className="h-4 w-4 text-neutral-500" />}
+                className={
+                  index === 3 || index === 4 ? "md:col-span-3" : "md:col-span-2"
+                }
+              />
             );
           })}
-        </div>
+        </BentoGrid>
       </Container>
     </Section>
   );

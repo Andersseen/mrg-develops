@@ -65,7 +65,7 @@ export const Hero = ({ data }: HeroProps) => {
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-8 text-balance">
             {data.heading}
           </h1>
-          <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto mb-10 text-balance leading-relaxed">
+          <p className="text-lg md:text-xl max-w-3xl mx-auto mb-10 text-balance leading-relaxed">
             {data.description}
           </p>
 
