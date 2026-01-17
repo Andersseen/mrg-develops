@@ -1,6 +1,7 @@
 import { Section } from "@components/ui/Section";
 import { Container } from "@components/ui/Container";
 import { CheckCircle2 } from "lucide-react";
+import { useEffect, useState } from "react";
 
 interface AboutData {
   heading: string;
@@ -14,21 +15,44 @@ interface AboutProps {
 }
 
 export const About = ({ data }: AboutProps) => {
+  const [theme, setTheme] = useState<"light" | "dark">("light");
+
+  useEffect(() => {
+    const isDark = document.documentElement.classList.contains("dark");
+    setTheme(isDark ? "dark" : "light");
+
+    const observer = new MutationObserver((mutations) => {
+      mutations.forEach((mutation) => {
+        if (mutation.attributeName === "class") {
+          const isDark = document.documentElement.classList.contains("dark");
+          setTheme(isDark ? "dark" : "light");
+        }
+      });
+    });
+
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ["class"],
+    });
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <Section id="about" className="shadow-neu-top">
       <Container>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 md:gap-20 items-center">
           <div className="relative order-2 lg:order-1">
-            <div className="aspect-square rounded-3xl overflow-hidden bg-gradient-to-br from-primary to-secondary opacity-10 absolute inset-0 transform -rotate-6 scale-95" />
-            <div className="aspect-square rounded-3xl overflow-hidden bg-background relative z-10 flex items-center justify-center p-8 shadow-neu">
-              <div className="text-center">
-                <span className="text-6xl font-bold text-primary opacity-20 block shadow-neu-text">
-                  MRG
-                </span>
-                <span className="text-xl text-muted-foreground uppercase tracking-widest">
-                  Develops
-                </span>
-              </div>
+            <div className="relative w-full max-w-md aspect-square flex items-center justify-center bg-gray-50/50 dark:bg-white/5 rounded-full shadow-neu-inset p-12">
+              <img
+                src={
+                  theme === "dark"
+                    ? "/img/about-dark.webp"
+                    : "/img/about-light.webp"
+                }
+                alt="Cloud Brewery Pint"
+                className="w-full h-full object-contain drop-shadow-2xl"
+              />
             </div>
           </div>
 

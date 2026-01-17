@@ -51,7 +51,6 @@ export const Services = ({ data }: ServicesProps) => {
                     <IconComponent className="w-10 h-10 text-primary" />
                   </div>
                 }
-                icon={<IconComponent className="h-4 w-4 text-neutral-500" />}
                 className={
                   index === 3 || index === 4 ? "md:col-span-3" : "md:col-span-2"
                 }
