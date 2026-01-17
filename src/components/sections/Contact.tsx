@@ -61,7 +61,7 @@ export const Contact = ({ lang, data }: ContactProps) => {
   };
 
   return (
-    <Section id="contact" className="bg-muted/30">
+    <Section id="contact">
       <Container>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24">
           {/* Contact Info */}

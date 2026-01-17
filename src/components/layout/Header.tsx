@@ -1,8 +1,9 @@
 import { useState, useEffect } from "react";
-import { Menu, X, Globe } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { Button } from "@components/ui/Button";
 import { Container } from "@components/ui/Container";
 import { ThemeToggle } from "@components/ThemeToggle";
+import { ToggleSwitch } from "@components/ui/ToggleSwitch";
 import { useScrollSpy } from "@lib/../hooks/useScrollSpy";
 
 interface HeaderData {
@@ -75,16 +76,24 @@ export const Header = ({ lang, data }: HeaderProps) => {
           </nav>
 
           <div className="hidden md:flex items-center gap-4">
-            <Button
-              variant="ghost"
-              size="sm"
-              onClick={toggleLanguage}
-              aria-label="Switch Language"
-              className="flex items-center gap-2"
-            >
-              <Globe className="h-4 w-4" />
-              <span className="uppercase">{lang}</span>
-            </Button>
+            <ToggleSwitch
+              value={lang}
+              onChange={(newLang) => {
+                if (newLang === lang) return;
+                const currentPath = window.location.pathname;
+                if (currentPath.includes("/es")) {
+                  window.location.href = currentPath.replace("/es", "/en");
+                } else if (currentPath.includes("/en")) {
+                  window.location.href = currentPath.replace("/en", "/es");
+                } else {
+                  window.location.href = `/${newLang}`;
+                }
+              }}
+              options={[
+                { value: "en", label: "EN" },
+                { value: "es", label: "ES" },
+              ]}
+            />
             <ThemeToggle />
             <Button
               variant="primary"
@@ -126,15 +135,24 @@ export const Header = ({ lang, data }: HeaderProps) => {
               </a>
             ))}
             <div className="flex items-center justify-between pt-4">
-              <Button
-                variant="ghost"
-                size="sm"
-                onClick={toggleLanguage}
-                className="flex items-center gap-2"
-              >
-                <Globe className="h-4 w-4" />
-                <span className="uppercase">{lang}</span>
-              </Button>
+              <ToggleSwitch
+                value={lang}
+                onChange={(newLang) => {
+                  if (newLang === lang) return;
+                  const currentPath = window.location.pathname;
+                  if (currentPath.includes("/es")) {
+                    window.location.href = currentPath.replace("/es", "/en");
+                  } else if (currentPath.includes("/en")) {
+                    window.location.href = currentPath.replace("/en", "/es");
+                  } else {
+                    window.location.href = `/${newLang}`;
+                  }
+                }}
+                options={[
+                  { value: "en", label: "EN" },
+                  { value: "es", label: "ES" },
+                ]}
+              />
               <Button
                 variant="primary"
                 size="sm"

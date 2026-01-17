@@ -1,5 +1,6 @@
 ---
 import '@styles/global.css';
+import { ScrollToTop } from '@components/ui/ScrollToTop';
 import { SmoothScroll } from '@components/SmoothScroll';
 
 interface Props {
@@ -21,9 +22,11 @@ const { title, lang = 'en', description = "MRG develops - The Cloud Brewery | Yo
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
+		<script is:inline src="/js/set-theme.js"></script>
 	</head>
 	<body class="bg-background text-foreground antialiased min-h-screen flex flex-col">
 		<SmoothScroll client:only="react" />
+		<ScrollToTop client:load />
 		<slot />
 	</body>
 </html>

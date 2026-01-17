@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Moon, Sun } from "lucide-react";
-import { Button } from "@components/ui/Button";
+import { ToggleSwitch } from "@components/ui/ToggleSwitch";
 
 export const ThemeToggle = () => {
   const [theme, setTheme] = useState<"light" | "dark">("light");
@@ -22,31 +22,25 @@ export const ThemeToggle = () => {
     return () => observer.disconnect();
   }, []);
 
-  const toggleTheme = () => {
-    const isDark = theme === "dark";
-    if (isDark) {
-      document.documentElement.classList.remove("dark");
-      localStorage.setItem("theme", "light");
-    } else {
+  const handleThemeChange = (newTheme: "light" | "dark") => {
+    if (newTheme === "dark") {
       document.documentElement.classList.add("dark");
       localStorage.setItem("theme", "dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+      localStorage.setItem("theme", "light");
     }
-    setTheme(isDark ? "light" : "dark");
+    setTheme(newTheme);
   };
 
   return (
-    <Button
-      variant="ghost"
-      size="sm"
-      onClick={toggleTheme}
-      aria-label="Toggle theme"
-      className="p-2"
-    >
-      {theme === "light" ? (
-        <Moon className="h-5 w-5" />
-      ) : (
-        <Sun className="h-5 w-5" />
-      )}
-    </Button>
+    <ToggleSwitch
+      value={theme}
+      onChange={handleThemeChange}
+      options={[
+        { value: "light", label: <Sun className="h-4 w-4" /> },
+        { value: "dark", label: <Moon className="h-4 w-4" /> },
+      ]}
+    />
   );
 };
