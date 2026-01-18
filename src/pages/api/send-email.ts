@@ -14,14 +14,15 @@ export const POST: APIRoute = async ({ request }) => {
       JSON.stringify({
         message: "Missing required fields",
       }),
-      { status: 400 }
+      { status: 400 },
     );
   }
 
   try {
     const { data: emailData, error } = await resend.emails.send({
-      from: "MRG Contact Form <onboarding@resend.dev>",
+      from: "Andersseen Contact <notify@andersseen.dev>",
       to: ["mikhail.retinski@mrgdevelops.com"],
+      replyTo: email,
       subject: `New message from ${name}`,
       html: `
         <p><strong>Name:</strong> ${name}</p>
@@ -42,14 +43,14 @@ export const POST: APIRoute = async ({ request }) => {
         message: "Success",
         id: emailData?.id,
       }),
-      { status: 200 }
+      { status: 200 },
     );
   } catch (e) {
     return new Response(
       JSON.stringify({
         message: "Internal server error",
       }),
-      { status: 500 }
+      { status: 500 },
     );
   }
 };

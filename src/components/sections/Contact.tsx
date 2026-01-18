@@ -76,21 +76,6 @@ export const Contact = ({ lang, data }: ContactProps) => {
             <div className="space-y-6">
               <div className="flex items-start gap-4">
                 <span className="p-3 rounded-xl bg-background shadow-neu text-primary">
-                  <Mail className="h-6 w-6" />
-                </span>
-                <div>
-                  <h3 className="font-semibold mb-1">Email</h3>
-                  <a
-                    href={`mailto:${data.info.email}`}
-                    className="text-muted-foreground hover:text-primary transition-colors"
-                  >
-                    {data.info.email}
-                  </a>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-4">
-                <span className="p-3 rounded-xl bg-background shadow-neu text-primary">
                   <MapPin className="h-6 w-6" />
                 </span>
                 <div>
