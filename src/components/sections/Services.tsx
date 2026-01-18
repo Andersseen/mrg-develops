@@ -38,7 +38,7 @@ export const Services = ({ data }: ServicesProps) => {
           <p className="text-xl text-muted-foreground">{data.subheading}</p>
         </div>
 
-        <BentoGrid className="max-w-4xl mx-auto">
+        <BentoGrid className="max-w-8xl mx-auto">
           {data.items.map((item, index) => {
             const IconComponent = iconMap[item.icon] || Cloud;
             return (
@@ -48,7 +48,7 @@ export const Services = ({ data }: ServicesProps) => {
                 description={item.description}
                 header={
                   <div className="flex flex-1 w-full h-full min-h-[6rem] rounded-xl items-center justify-center shadow-neu-inset">
-                    <IconComponent className="w-10 h-10 text-primary" />
+                    <IconComponent className="w-8 h-8 text-primary" />
                   </div>
                 }
                 className={

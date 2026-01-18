@@ -29,6 +29,10 @@
   --neu-shadow-top: 0px -6px 12px oklab(0.85 0 0);
   --neu-text: 2px 2px 4px oklab(0.85 0 0);
 
+  --shadow-hover-light: -8px -8px 16px oklab(1 0 0);
+  --shadow-hover-dark: 8px 8px 16px oklab(0.8 0 0);
+  --neu-shadow-hover: var(--shadow-hover-dark), var(--shadow-hover-light);
+
   color-scheme: light;
 }
 
@@ -48,6 +52,10 @@
   --neu-shadow-inset: inset var(--shadow-dark), inset var(--shadow-light);
   --neu-shadow-top: 0px -5px 10px oklab(0.1 0 0);
   --neu-text: 2px 2px 4px oklab(0.1 0 0);
+
+  --shadow-hover-light: -6px -6px 12px oklab(0.25 0 0);
+  --shadow-hover-dark: 6px 6px 12px oklab(0.08 0 0);
+  --neu-shadow-hover: var(--shadow-hover-dark), var(--shadow-hover-light);
 
   color-scheme: dark;
 }
@@ -75,6 +83,7 @@
   --shadow-neu-inset: var(--neu-shadow-inset);
   --shadow-neu-top: var(--neu-shadow-top);
   --shadow-neu-text: var(--neu-text);
+  --shadow-neu-hover: var(--neu-shadow-hover);
 
   --font-sans: "Inter", system-ui, sans-serif;
 }
