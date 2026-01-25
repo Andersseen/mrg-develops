@@ -15,7 +15,7 @@
     "dev": "astro dev",
     "build": "astro build",
     "build:vercel": "DEPLOY_TARGET=vercel astro build",
-    "build:ionos": "SKIP_KEYSTATIC=true DEPLOY_TARGET=ionos astro build && cp ionos-assets/send-mail.php dist/send-mail.php",
+    "build:ionos": "SKIP_KEYSTATIC=true DEPLOY_TARGET=ionos astro build && cp ionos-assets/send-mail.php dist/send-mail.php && cp ionos-assets/config.php dist/config.php",
     "preview": "astro preview",
     "astro": "astro"
   },

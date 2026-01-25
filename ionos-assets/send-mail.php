@@ -1,11 +1,4 @@
 <?php
-/**
- * PHP Proxy for Resend API
- * To be used on Ionos Shared Hosting where Node.js SSR is not available.
- * 
- * IMPORTANT: Replace 'YOUR_RESEND_API_KEY' with your actual API key.
- * For better security, consider loading this from a non-public config file or environment variable.
- */
 
 // Allow cross-origin requests if necessary (adjust domain for production security)
 header("Access-Control-Allow-Origin: *");
@@ -40,10 +33,15 @@ if (empty($name) || empty($email) || empty($message)) {
     exit;
 }
 
-// CONFIGURATION - update this!
-// It is recommended to not hardcode keys in public files if possible.
-// If you can, put this in a config.php outside the web root and require() it.
-$resendApiKey = "re_123456789"; 
+// Load configuration
+require_once 'config.php';
+
+// Check if API key is set
+if (!isset($resendApiKey) || empty($resendApiKey)) {
+    http_response_code(500);
+    echo json_encode(["message" => "Server configuration error"]);
+    exit;
+}
 
 $url = "https://api.resend.com/emails";
 $headers = [
