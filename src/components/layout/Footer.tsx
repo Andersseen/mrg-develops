@@ -73,15 +73,16 @@ export const Footer = ({ lang, data }: FooterProps) => {
             </h3>
             <div className="flex gap-4">
               {[
-                { icon: Linkedin, label: "LinkedIn" },
-                { icon: Twitter, label: "Twitter" },
-                { icon: Facebook, label: "Facebook" },
-                { icon: Instagram, label: "Instagram" },
-                { icon: Youtube, label: "YouTube" },
+                {
+                  icon: Linkedin,
+                  label: "LinkedIn",
+                  href: "https://www.linkedin.com/company/mrgdevelops",
+                },
               ].map((social, index) => (
                 <a
                   key={index}
-                  href="#"
+                  target="_blank"
+                  href={social.href}
                   aria-label={social.label}
                   className="flex items-center justify-center w-10 h-10 rounded-full bg-background shadow-neu text-muted-foreground hover:text-primary hover:shadow-neu-hover active:shadow-neu-inset transition-all duration-300"
                 >

@@ -1,8 +1,8 @@
-import { useState } from "react";
-import { Section } from "@components/ui/Section";
-import { Container } from "@components/ui/Container";
 import { Button } from "@components/ui/Button";
-import { Mail, MapPin } from "lucide-react";
+import { Container } from "@components/ui/Container";
+import { Section } from "@components/ui/Section";
+import { MapPin } from "lucide-react";
+import { useState } from "react";
 
 interface ContactInfo {
   email: string;
@@ -41,7 +41,12 @@ export const Contact = ({ lang, data }: ContactProps) => {
     };
 
     try {
-      const response = await fetch("/api/send-email", {
+      const endpoint =
+        import.meta.env.DEPLOY_TARGET === "ionos"
+          ? "/send-mail.php"
+          : "/api/send-email";
+
+      const response = await fetch(endpoint, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

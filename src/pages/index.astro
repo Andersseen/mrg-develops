@@ -1,4 +1,10 @@
 ---
-export const prerender = false;
-return Astro.redirect('/en');
+export const prerender = process.env.DEPLOY_TARGET === 'vercel' ? false : true;
+
+if (process.env.DEPLOY_TARGET === 'vercel') {
+  return Astro.redirect('/en');
+}
+---
+
+<meta http-equiv="refresh" content="0;url=/en" />
 ---
