@@ -1,7 +1,7 @@
 import { Button } from "@components/ui/Button";
 import { Container } from "@components/ui/Container";
 import { Section } from "@components/ui/Section";
-import { MapPin } from "lucide-react";
+import { Mail, MapPin } from "lucide-react";
 import { useState } from "react";
 
 interface ContactInfo {
@@ -40,13 +40,12 @@ export const Contact = ({ lang, data }: ContactProps) => {
       message: formData.get("message"),
     };
 
-    try {
-      const endpoint =
-        import.meta.env.DEPLOY_TARGET === "ionos"
-          ? "/send-mail.php"
-          : "/api/send-email";
+    const workerUrl =
+      import.meta.env.PUBLIC_WORKER_URL ||
+      "https://mrg-contact.andriipap01.workers.dev";
 
-      const response = await fetch(endpoint, {
+    try {
+      const response = await fetch(workerUrl, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -88,6 +87,23 @@ export const Contact = ({ lang, data }: ContactProps) => {
                     {lang === "en" ? "Location" : "Ubicación"}
                   </h3>
                   <p className="text-muted-foreground">{data.info.location}</p>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-4">
+                <span className="p-3 rounded-xl bg-background shadow-neu text-primary">
+                  <Mail className="h-6 w-6" />
+                </span>
+                <div>
+                  <h3 className="font-semibold mb-1">
+                    {lang === "en" ? "Email" : "Correo"}
+                  </h3>
+                  <a
+                    href={`mailto:${data.info.email}`}
+                    className="text-muted-foreground hover:text-primary transition-colors break-all"
+                  >
+                    {data.info.email}
+                  </a>
                 </div>
               </div>
             </div>

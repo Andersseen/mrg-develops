@@ -1,0 +1,13 @@
+name = "mrg-contact"
+main = "src/index.ts"
+compatibility_date = "2024-11-01"
+compatibility_flags = ["nodejs_compat"]
+
+[vars]
+# Destination email (client's inbox). Override this in the Cloudflare dashboard
+# under Settings › Variables. Do NOT put secrets in wrangler.toml.
+RECIPIENT_EMAIL = "mikhail.retinski@mrgdevelops.com"
+FROM_EMAIL = "contact@mrgdevelops.com"
+FROM_NAME = "MRG develops Website"
+# Allowed origins for CORS. Comma-separated if multiple, e.g. "https://mrgdevelops.com,https://www.mrgdevelops.com"
+ALLOWED_ORIGIN = "https://mrgdevelops.com"
