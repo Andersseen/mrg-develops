@@ -41,7 +41,8 @@ export const Contact = ({ lang, data }: ContactProps) => {
     };
 
     const workerUrl =
-      import.meta.env.PUBLIC_WORKER_URL || "https://mrg-contact.workers.dev";
+      import.meta.env.PUBLIC_WORKER_URL ||
+      "https://mrg-contact.andriipap01.workers.dev";
 
     try {
       const response = await fetch(workerUrl, {
