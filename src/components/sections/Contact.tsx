@@ -40,8 +40,11 @@ export const Contact = ({ lang, data }: ContactProps) => {
       message: formData.get("message"),
     };
 
+    const workerUrl =
+      import.meta.env.PUBLIC_WORKER_URL || "https://mrg-contact.workers.dev";
+
     try {
-      const response = await fetch("/api/send-email", {
+      const response = await fetch(workerUrl, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -83,6 +86,23 @@ export const Contact = ({ lang, data }: ContactProps) => {
                     {lang === "en" ? "Location" : "Ubicación"}
                   </h3>
                   <p className="text-muted-foreground">{data.info.location}</p>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-4">
+                <span className="p-3 rounded-xl bg-background shadow-neu text-primary">
+                  <Mail className="h-6 w-6" />
+                </span>
+                <div>
+                  <h3 className="font-semibold mb-1">
+                    {lang === "en" ? "Email" : "Correo"}
+                  </h3>
+                  <a
+                    href={`mailto:${data.info.email}`}
+                    className="text-muted-foreground hover:text-primary transition-colors break-all"
+                  >
+                    {data.info.email}
+                  </a>
                 </div>
               </div>
             </div>
