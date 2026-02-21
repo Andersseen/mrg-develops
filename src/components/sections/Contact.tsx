@@ -40,12 +40,17 @@ export const Contact = ({ lang, data }: ContactProps) => {
       message: formData.get("message"),
     };
 
-    const workerUrl =
-      import.meta.env.PUBLIC_WORKER_URL ||
-      "https://mrg-contact.andriipap01.workers.dev";
+    // Determine which endpoint to use based on the environment variable set during build
+    // Vercel deployment will use internal API route with Resend
+    // Ionos deployment will use the external Cloudflare Worker
+    const isVercel = import.meta.env.PUBLIC_DEPLOY_TARGET === "vercel";
+    const endpointUrl = isVercel
+      ? "/api/send-email"
+      : import.meta.env.PUBLIC_WORKER_URL ||
+        "https://mrg-contact.andriipap01.workers.dev";
 
     try {
-      const response = await fetch(workerUrl, {
+      const response = await fetch(endpointUrl, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
