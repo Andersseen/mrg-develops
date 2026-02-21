@@ -14,10 +14,14 @@
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
+    "build:vercel": "PUBLIC_DEPLOY_TARGET=vercel astro build",
+    "build:ionos": "SKIP_KEYSTATIC=true PUBLIC_DEPLOY_TARGET=ionos astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "deploy:worker": "npm run deploy --prefix worker"
   },
   "dependencies": {
+    "@astrojs/node": "^9.5.2",
     "@astrojs/react": "^4.4.2",
     "@astrojs/vercel": "^9.0.3",
     "@keystatic/astro": "^5.0.6",

@@ -1,8 +1,8 @@
-import { useState } from "react";
-import { Section } from "@components/ui/Section";
-import { Container } from "@components/ui/Container";
 import { Button } from "@components/ui/Button";
+import { Container } from "@components/ui/Container";
+import { Section } from "@components/ui/Section";
 import { Mail, MapPin } from "lucide-react";
+import { useState } from "react";
 
 interface ContactInfo {
   email: string;
@@ -40,8 +40,17 @@ export const Contact = ({ lang, data }: ContactProps) => {
       message: formData.get("message"),
     };
 
+    // Determine which endpoint to use based on the environment variable set during build
+    // Vercel deployment will use internal API route with Resend
+    // Ionos deployment will use the external Cloudflare Worker
+    const isVercel = import.meta.env.PUBLIC_DEPLOY_TARGET === "vercel";
+    const endpointUrl = isVercel
+      ? "/api/send-email"
+      : import.meta.env.PUBLIC_WORKER_URL ||
+        "https://mrg-contact.andriipap01.workers.dev";
+
     try {
-      const response = await fetch("/api/send-email", {
+      const response = await fetch(endpointUrl, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -83,6 +92,23 @@ export const Contact = ({ lang, data }: ContactProps) => {
                     {lang === "en" ? "Location" : "Ubicación"}
                   </h3>
                   <p className="text-muted-foreground">{data.info.location}</p>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-4">
+                <span className="p-3 rounded-xl bg-background shadow-neu text-primary">
+                  <Mail className="h-6 w-6" />
+                </span>
+                <div>
+                  <h3 className="font-semibold mb-1">
+                    {lang === "en" ? "Email" : "Correo"}
+                  </h3>
+                  <a
+                    href={`mailto:${data.info.email}`}
+                    className="text-muted-foreground hover:text-primary transition-colors break-all"
+                  >
+                    {data.info.email}
+                  </a>
                 </div>
               </div>
             </div>

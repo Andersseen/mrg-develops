@@ -1,4 +1,4 @@
-export const prerender = false;
+export const prerender = process.env.DEPLOY_TARGET === "vercel" ? false : true;
 
 import type { APIRoute } from "astro";
 import { Resend } from "resend";

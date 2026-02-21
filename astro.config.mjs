@@ -15,9 +15,9 @@ if (!process.env.SKIP_KEYSTATIC) {
 }
 
 export default defineConfig({
-  output: "static",
-  adapter: vercel(),
+  output: process.env.PUBLIC_DEPLOY_TARGET === "vercel" ? "server" : "static",
   integrations,
+  adapter: process.env.PUBLIC_DEPLOY_TARGET === "vercel" ? vercel() : undefined,
   vite: {
     plugins: [tailwindcss()],
     resolve: {
