@@ -1,7 +1,7 @@
 ---
-export const prerender = process.env.DEPLOY_TARGET === 'vercel' ? false : true;
+export const prerender = process.env.PUBLIC_DEPLOY_TARGET === 'vercel' ? false : true;
 
-if (process.env.DEPLOY_TARGET === 'vercel') {
+if (process.env.PUBLIC_DEPLOY_TARGET === 'vercel') {
   return Astro.redirect('/en');
 }
 ---
